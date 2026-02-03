@@ -6,7 +6,8 @@ public class Array {
     // System.out.println(maxElement(arr));
     // reverseArray(arr);
 
-    leftRotateByOne(arr);
+    // leftRotateByOne(arr);
+    rotate(arr, 3);
     for (int i = 0; i < arr.length; i++) {
       System.out.print(arr[i] + " ");
     }
@@ -77,5 +78,15 @@ public class Array {
     arr[arr.length - 1] = temp;
   }
 
+  // Q6:  Rotate Array right by k
+  public static void rotate(int[] nums, int k) {
+        for(int j = 1; j <= k; j++) {
+            int temp = nums[nums.length - 1];
+            for(int i = nums.length - 1; i > 0; i--) {
+                nums[i] = nums[i - 1];
+            }
+            nums[0] = temp;
+        }
+    }
   
 }
