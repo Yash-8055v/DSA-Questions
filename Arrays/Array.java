@@ -5,12 +5,14 @@ public class Array {
     int[] arr = new int[]{1, 3, 5, 8, 8};
     // System.out.println(maxElement(arr));
     // reverseArray(arr);
-    // for (int i = 0; i < arr.length; i++) {
-    //   System.out.print(arr[i] + " ");
-    // }
 
-    System.out.println(isSorted(arr));
-    System.out.println(removeDuplicates(arr));
+    leftRotateByOne(arr);
+    for (int i = 0; i < arr.length; i++) {
+      System.out.print(arr[i] + " ");
+    }
+
+    // System.out.println(isSorted(arr));
+    // System.out.println(removeDuplicates(arr));
 
     
   }
@@ -65,7 +67,15 @@ public class Array {
     return i + 1;
 }
 
+  // Q5: Left Rotate Array by 1
+  public static void leftRotateByOne(int[] arr) {
 
+    int temp = arr[0];
+    for(int i = 1; i < arr.length; i++) {
+      arr[i - 1] = arr[i];
+    }
+    arr[arr.length - 1] = temp;
+  }
 
   
 }
