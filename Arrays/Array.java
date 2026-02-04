@@ -2,12 +2,14 @@ public class Array {
 
   public static void main(String[] args) {
     // int[] arr = new int[]{1, 5, 8, 2, 0, 9, 5, 3, 55};
-    int[] arr = new int[]{1, 3, 5, 8, 8};
+    int[] arr = new int[]{1, 0, 5, 0, 8};
     // System.out.println(maxElement(arr));
     // reverseArray(arr);
 
     // leftRotateByOne(arr);
-    rotate(arr, 3);
+    
+    // rotate(arr, 3);
+    moveZeros(arr);
     for (int i = 0; i < arr.length; i++) {
       System.out.print(arr[i] + " ");
     }
@@ -89,4 +91,21 @@ public class Array {
         }
     }
   
+    
+    // Q7: Move Zeroes
+    public static void moveZeros(int[] nums) {
+    int j = 0;
+    for(int i = 0; i < nums.length; i++) {
+      if(nums[i] != 0) {
+        nums[j] = nums[i];
+        j++;
+      }
+    }
+
+    while (j < nums.length) {
+      nums[j] = 0;
+      j++;
+    }
+  }
+
 }
