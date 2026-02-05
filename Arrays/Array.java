@@ -2,14 +2,15 @@ public class Array {
 
   public static void main(String[] args) {
     // int[] arr = new int[]{1, 5, 8, 2, 0, 9, 5, 3, 55};
-    int[] arr = new int[]{1, 0, 5, 0, 8};
+    int[] arr = new int[]{1, 5, 5, 0, 5};
     // System.out.println(maxElement(arr));
     // reverseArray(arr);
 
     // leftRotateByOne(arr);
     
     // rotate(arr, 3);
-    moveZeros(arr);
+    // moveZeros(arr);
+    System.out.println(majorityElement(arr));
     for (int i = 0; i < arr.length; i++) {
       System.out.print(arr[i] + " ");
     }
@@ -108,4 +109,24 @@ public class Array {
     }
   }
 
-}
+    // Q8: Find majority element
+   public static int majorityElement(int[] nums) {
+        int candidate = 0;
+        int count = 0;
+
+        for (int num : nums) {
+            if (count == 0) {
+                candidate = num;
+            }
+
+            if (num == candidate) {
+                count++;
+            } else {
+                count--;
+            }
+        }
+        return candidate;
+    }
+
+  }
+
