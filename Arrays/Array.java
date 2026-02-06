@@ -10,13 +10,16 @@ public class Array {
     
     // rotate(arr, 3);
     // moveZeros(arr);
+    
     System.out.println(majorityElement(arr));
     for (int i = 0; i < arr.length; i++) {
       System.out.print(arr[i] + " ");
     }
 
     // System.out.println(isSorted(arr));
-    // System.out.println(removeDuplicates(arr));
+   
+ // System.out.println(removeDuplicates(arr));
+System.out.println(missingElement(arr));
 
     
   }
@@ -128,5 +131,17 @@ public class Array {
         return candidate;
     }
 
+  // Q9: find missing number 
+  public static int missingNumber(int[] nums) {
+        int n = nums.length;
+        int expectedSum = n * (n + 1) / 2;
+
+        int actualSum = 0;
+        for (int x : nums) {
+            actualSum += x;
+        }
+
+        return expectedSum - actualSum;
+    }
   }
 
