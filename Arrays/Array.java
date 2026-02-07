@@ -145,3 +145,15 @@ System.out.println(missingElement(arr));
     }
   }
 
+
+  // Q10: Find single number
+    public static int singleNumber(int[] nums) {
+        int ans = 0;
+
+        for (int num : nums) {
+            ans = ans ^ num;
+        }
+
+        return ans;
+    }
+
