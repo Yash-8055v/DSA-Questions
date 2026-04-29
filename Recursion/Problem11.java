@@ -3,6 +3,8 @@
 public class Problem11 {
   public static void main(String[] args) {
     printBinString(3, 0, "");
+
+    
   }
 
   public static void printBinString(int n, int lastPlace, String str) {
