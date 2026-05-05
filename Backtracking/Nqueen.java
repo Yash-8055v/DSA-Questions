@@ -1,7 +1,6 @@
 package Backtracking;
 
-// Find & Print all Permutations of a given string
-
+// NQueen Problem
 // TC: O(n * n!)
 // SC: O(n)
 
