@@ -49,6 +49,16 @@ public class LinkedList {
     tail = newNode;
   }
 
+  // Printing LL
+  public void printLL() {
+    Node temp = head;
+    while (temp != null) {
+      System.out.println(temp.data + " -> ");
+      temp = temp.next;
+    }
+    System.out.println("null");
+  }
+
   public static void main(String[] args) {
     LinkedList ll = new LinkedList();
   }
