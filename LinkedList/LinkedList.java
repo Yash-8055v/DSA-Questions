@@ -14,7 +14,7 @@ public class LinkedList {
 
   public static Node head;
   public static Node tail;
-  public static Node size;
+  public static int size;
 
   // Adding Node at start
   public void addFirst(int data) {
@@ -70,6 +70,23 @@ public class LinkedList {
 
     newNode.next = prev.next;
     prev.next = newNode;
+  }
+
+  // Remove first in LL
+  public int removeFirst() {
+    if (size == 0) {
+      System.out.println("LL is empty");
+      return Integer.MIN_VALUE;
+    }else if (size == 1) {
+      int val = head.data;
+      head = tail = null;
+      size--;
+      return val;
+    }
+    int val = head.data;
+    head = head.next;
+    size--;
+    return val;
   }
 
   // Printing LL
