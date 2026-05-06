@@ -49,6 +49,25 @@ public class LinkedList {
     tail = newNode;
   }
 
+  // Add Node at middle
+  public void add(int idx, int data) {
+    if (idx == 0) {
+      addFirst(data);
+      return;
+    }
+    Node newNode = new Node(data);
+    Node prev = head;
+    int i = 0;
+
+    while(i < idx - 1) {
+      prev = prev.next;
+      i++;
+    }
+
+    newNode.next = prev.next;
+    prev.next = newNode;
+  }
+
   // Printing LL
   public void printLL() {
     Node temp = head;
