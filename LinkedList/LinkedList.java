@@ -14,11 +14,13 @@ public class LinkedList {
 
   public static Node head;
   public static Node tail;
+  public static Node size;
 
   // Adding Node at start
   public void addFirst(int data) {
     // step 1: create new node
     Node newNode = new Node(data);
+    size++;
 
     if(head == null) {
       head = tail = newNode;
@@ -36,6 +38,7 @@ public class LinkedList {
   public void addLast(int data) {
     // step 1: create new node
     Node newNode = new Node(data);
+    size++;
 
     if(head == null) {
       head = tail = newNode;
@@ -56,6 +59,7 @@ public class LinkedList {
       return;
     }
     Node newNode = new Node(data);
+    size++;
     Node prev = head;
     int i = 0;
 
