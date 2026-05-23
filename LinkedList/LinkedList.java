@@ -210,6 +210,42 @@ public class LinkedList {
 
     return slow; // slow is mid node
   }
+
+  // check if LL is Palindrome
+  public boolean checkPalindrome() {
+    if (head == null || head.next == null) {
+      return true;
+    }
+
+    // step 1 - find mid
+    Node midNode = findMid(head);
+
+    // step 2 - reverse 2nd half
+    Node prev = null;
+    Node curr = midNode;
+    Node next;
+    while (curr != null) {
+      next = curr.next;
+      curr.next = prev;
+      prev = curr;
+      curr = next;
+    }
+
+    Node right = prev; // right half head
+    Node left = head;
+
+    // step 3 - check left half and right half
+    while (right != null) {
+      if (left.data != right.data) {
+        return false;
+      }
+      left = left.next;
+      right = right.next;
+    }
+
+    return true;
+  }
+
   // Printing LL
   public void printLL() {
     Node temp = head;
