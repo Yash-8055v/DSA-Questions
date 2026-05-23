@@ -170,6 +170,33 @@ public class LinkedList {
 
   }
 
+  // Delete nth node from end
+  public void deleteNthFromEnd(int n) {
+    // calculate size of LL
+    int sz = 0;
+    Node temp = head;
+    while (temp != null) {
+      temp = temp.next;
+      sz++;
+    }
+
+    if (n == sz) {
+      head = head.next; // if nth node is first one
+      return; 
+    }
+
+    int i = 1;
+    int itoFind = sz - 1;
+    Node prev = head;
+    while (i < itoFind) {
+      prev = prev.next;
+      i++;
+    }
+    
+    prev.next = prev.next.next;
+    return;
+  }
+
   // Printing LL
   public void printLL() {
     Node temp = head;
