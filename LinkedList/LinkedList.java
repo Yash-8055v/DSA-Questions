@@ -368,13 +368,13 @@ public class LinkedList {
       fast = fast.next.next;
 
     }
-    Node mid slow;
+    Node mid = slow;
 
     // reverse 2nd half
     Node curr = mid.next;
     mid.next = null;
     Node prev = null;
-    Node next;
+    Node next = null;
 
     while (curr != null) {
       curr.next = prev;
@@ -384,7 +384,7 @@ public class LinkedList {
 
     Node left = head;
     Node right = prev;
-    Node nextL, nextR;
+    Node nextL = null , nextR;
 
     // alt merge - zig zag merge
     while (left != null && right != null) {

@@ -62,6 +62,25 @@ public class DoubleLL {
     size--;
     return val;
   }
+
+  // Reverse a doubly LL
+  public void reverseDLL() {
+    Node prev = null;
+    Node curr = head;
+    Node next;
+
+    while (curr != null) {
+      next = curr.next;
+      curr.next = prev;
+      curr.prev = next;
+
+      prev = curr;
+      curr = next;
+    }
+
+    head = prev;
+
+  }
   public static void main(String[] args) {
     
   }
