@@ -358,6 +358,47 @@ public class LinkedList {
   }
 
 
+  // Zig Zag LL list
+  public void zigZag() {
+    // find mid
+    Node slow = head;
+    Node fast = head.next;
+    while (fast != null && fast.next != null) {
+      slow = slow.next;
+      fast = fast.next.next;
+
+    }
+    Node mid slow;
+
+    // reverse 2nd half
+    Node curr = mid.next;
+    mid.next = null;
+    Node prev = null;
+    Node next;
+
+    while (curr != null) {
+      curr.next = prev;
+      prev = curr;
+      curr = next;
+    }
+
+    Node left = head;
+    Node right = prev;
+    Node nextL, nextR;
+
+    // alt merge - zig zag merge
+    while (left != null && right != null) {
+      next = left.next;
+      left.next = right;
+      nextR = right.next;
+      right.next = nextL;
+
+      left = nextL;
+      right = nextR;
+
+    }
+  }
+
   // Printing LL
   public void printLL() {
     Node temp = head;
