@@ -18,6 +18,30 @@ public class DoubleLL {
   public static Node tail;
   public static int size;
 
+  // add 
+  public void addFirst(int data) {
+    Node newNode = new Node(data);
+    size++;
+    if (head == null) {
+      head = tail = newNode;
+      return;
+    }
+
+    newNode.next = head;
+    head.prev = newNode;
+    head = newNode;
+  }
+
+  // Print doubly LL
+  public void print() {
+    Node temp = head;
+    while (temp != null) {
+      System.out.println(temp.data + "<-->");
+
+    }
+    System.out.println("null");
+  }
+
   
   public static void main(String[] args) {
     
