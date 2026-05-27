@@ -1,6 +1,6 @@
 package Stack;
 
-// Stack Q: Reverse a String using a Stack
+// Stack Q2: Reverse a String using a Stack
 //  TC:  
 
 import java.util.Stack;
