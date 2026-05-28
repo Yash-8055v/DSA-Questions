@@ -2,7 +2,7 @@ package Queue;
 
 import java.util.Stack;
 
-// Queue: Q1 Queue using 2 stack
+// Queue Q1: Queue using 2 stack
 
 
 public class Question1 {
