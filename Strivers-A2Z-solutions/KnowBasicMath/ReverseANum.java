@@ -4,8 +4,6 @@ package KnowBasicMath;
 // You are given an integer n. Return the integer formed by placing the digits of n in reverse order.
 
 // Complexity
-
-
 // TC = O(number of digits) = O(log n)
 // SC = O(1)
 
