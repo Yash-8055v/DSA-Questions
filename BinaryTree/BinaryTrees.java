@@ -122,9 +122,21 @@ public class BinaryTrees {
 
     
 
-
   }
 
+  
+ // Height of a tree
+    public static int height(Node root){
+      if(root == null) {
+        return 0;
+      }
+
+      int lh = height(root.left);
+      int rh = height(root.right);
+      return Math.max(lh, rh) + 1;
+
+
+    }
 
 
   public static void main(String[] args) {
