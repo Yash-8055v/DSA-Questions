@@ -39,7 +39,51 @@ public class BinaryTrees {
 
     }
 
-  
+     // preorder traversal
+    // TC: O(n)
+    public static void preorder(Node root) {
+
+      if (root == null) {
+        System.out.print("-1 ");
+        return;
+      }
+
+      System.out.print(root.data + " ");
+      preorder(root.left);
+      preorder(root.right);
+    } 
+
+    // inorder traversal
+    // TC: O(n)
+    public static void inorder(Node root) {
+
+      if (root == null) {
+        System.out.print("-1 ");
+        return;
+      }
+
+      inorder(root.left);
+
+      System.out.print(root.data + " ");
+      
+      inorder(root.right);
+    } 
+
+    // postorder traversal
+    // TC: O(n)
+    public static void postorder(Node root) {
+
+      if (root == null) {
+        System.out.print("-1 ");
+        return;
+      }
+
+      preorder(root.left);
+      preorder(root.right);
+      System.out.print(root.data + " ");
+      
+      
+    } 
 
     
 
