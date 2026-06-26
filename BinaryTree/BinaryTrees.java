@@ -138,6 +138,22 @@ public class BinaryTrees {
 
     }
 
+    // Diameter of a tree Approach 1: TC: O(n^2)
+    public static int diameter(Node root) {
+      if (root == null) {
+        return 0;
+      }
+
+      int leftDiam = diameter(root.left);
+      int leftHt = height(root.left);
+      int rightDiam = diameter(root.right);
+      int rightHt = height(root.right);
+
+      int selfDiam = leftHt + rightHt + 1;
+
+      return Math.max(selfDiam, Math.max(leftDiam, rightDiam));
+    }
+
 
   public static void main(String[] args) {
     int nodes[] = {1, 2, 3, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1};
