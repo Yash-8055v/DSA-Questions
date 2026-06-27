@@ -315,7 +315,21 @@ public class BinaryTrees {
       
     }
 
-    
+    // way 2: preorder traversal
+    public static void KthLevel2(Node root, int k, int level) {
+
+      if (root == null) {
+        return;
+      }
+
+      if (level == k) {
+        System.out.print(root.data + " ");
+        return;
+      }
+
+      KthLevel2(root.left, k, level+1);
+      KthLevel2(root.right, k, level+1);
+    }
 
   
 
@@ -331,7 +345,7 @@ public class BinaryTrees {
     root1.right.left = new Node(6);
     root1.right.right = new Node(7);
 
-    BinaryTrees.KthLevel(root1, 3);
+    BinaryTrees.KthLevel2(root1, 2, 1);
   
   }
 }
