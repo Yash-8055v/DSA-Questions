@@ -276,9 +276,52 @@ public class BinaryTrees {
 
     }
 
+    // Kth level of a tree
+    // way 1: level order traversal
+    public static void KthLevel(Node root, int k) {
+      if (root == null) {
+        return;
+      }
+
+      Queue<Node> q = new LinkedList<>();
+      q.add(root);
+      q.add(null);
+
+      int level = 1;
+      while (!q.isEmpty()) {
+        Node currNode = q.remove();
+          if (currNode == null) {
+            if (q.isEmpty()) {
+            break;
+          }else {
+            q.add(null);
+            level++;
+          }
+          }else {
+            if (level == k) {
+            System.out.print(currNode.data + " ");
+          }
+            if (currNode.left != null) {
+            q.add(currNode.left);
+          }
+          if (currNode.right != null) {
+            q.add(currNode.right);
+          }
+          
+        }
+
+      }
+
+      
+    }
+
+    
+
+  
+
   public static void main(String[] args) {
     int nodes[] = {1, 2, 3, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1};
-    Node root = BinaryTree.buildTree(nodes);
+    // Node root = BinaryTree.buildTree(nodes);
     // BinaryTree.preorder(root);
     Node root1 = new Node(1);
     root1.left = new Node(2);
@@ -288,6 +331,7 @@ public class BinaryTrees {
     root1.right.left = new Node(6);
     root1.right.right = new Node(7);
 
+    BinaryTrees.KthLevel(root1, 3);
   
   }
 }
