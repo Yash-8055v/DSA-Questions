@@ -14,7 +14,7 @@ public class BST {
     }
     
   }
-
+  // Build a BST
   public static Node insert(Node root, int val) {
     if (root == null) {
       root = new Node(val);
@@ -30,6 +30,28 @@ public class BST {
     }
 
     return root;
+  }
+
+  // Search in BST 
+  // TC: O(H) height of a tree
+  public static boolean search(Node root, int key) {
+
+    if (root == null) {
+      return false;
+    }
+
+    if (root.data == key) {
+      return true;
+    }
+
+    if (root.data > key) {
+      // search in left subtree
+      return search(root.left, key);
+    } else {
+      // search in right subtree
+      return search(root.right, key);
+    }
+    
   }
 
   public static void inorder(Node root) {
@@ -50,5 +72,7 @@ public class BST {
     }
 
     inorder(root);
+
+    System.out.println("\n" + search(root, 3));
   }
 }
