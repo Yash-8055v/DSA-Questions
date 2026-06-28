@@ -1,6 +1,6 @@
 package BinarySearchTree_BST;
 
-
+import java.util.ArrayList;
 
 public class BST {
   
@@ -108,6 +108,29 @@ public class BST {
     }
   }
 
+
+  // Root to Leaf Paths
+  public static void printPath(ArrayList<Integer> path) {
+    for(int i = 0; i < path.size(); i++) {
+      System.out.print(path.get(i) + " -> ");
+    }
+    System.out.println("Null");
+  }
+  public static void printRoot2Leaf(Node root, ArrayList<Integer> path) {
+    if(root == null) {
+      return;
+    }
+
+    if(root.left == null && root.right == null) {
+      printPath(path);
+    }
+
+    path.add(root.data);
+    printRoot2Leaf(root.left, path);
+    printRoot2Leaf(root.right, path);
+    path.remove(path.size() - 1);
+  }
+
   public static void inorder(Node root) {
     if (root == null) {
       return;
@@ -118,15 +141,16 @@ public class BST {
   }
 
   public static void main(String[] args) {
-    int values[] = {5, 1, 3, 4, 2, 7};
+    int values[] = {8, 5, 3, 1, 4, 6, 10, 11, 14};
     Node root = null;
 
     for(int i = 0; i < values.length; i++) {
       root = insert(root, values[i]);
     }
 
-    inorder(root);
+    // inorder(root);
 
-    System.out.println("\n" + search(root, 3));
+    // System.out.println("\n" + search(root, 3));
+    paths(root);
   }
 }
