@@ -189,6 +189,38 @@ public class BST {
     return root;
   }
   
+  // Convert BST to balanced BST
+  // TC: O(n)
+  public static void getInorder(Node root, ArrayList<Integer> inorder) {
+    if (root == null) {
+      return;
+    }
+
+    getInorder(root.left, inorder);
+    inorder.add(root.data);
+    getInorder(root.right, inorder);
+  }
+
+  public static Node createBST(ArrayList<Integer> inorder, int st, int end) {
+    if(st > end) {
+      return null;
+    }
+
+    int mid = (st+end)/2;
+    Node root = new Node(inorder.get(mid));
+    root.left = createBST(inorder, st, mid-1);
+    root.right = createBST(inorder, mid+1, end);
+    return root;
+  }
+  public static Node balanceBST(Node root) {
+    // inorder seq - O(n)
+    ArrayList<Integer>  inorder = new ArrayList<>();
+    getInorder(root, inorder);
+
+    // sorted inorder -> balanced BST - O(n)
+    root = createBST(inorder, 0, inorder.size() - 1);
+    return root;
+  }
 
   public static void main(String[] args) {
     int values[] = {3, 5, 6, 8, 10, 11, 12, 13};
