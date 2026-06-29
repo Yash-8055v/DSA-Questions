@@ -157,8 +157,26 @@ public class BST {
     return isValidBST(root.left, min, root) && isValidBST(root.right, root, max);
   }
 
+  // Mirror a BST
+  // TC: O(n) , SC: O(H)
+  public static Node mirrorBST(Node root) {
+    if (root == null) {
+      return null;
+    }
+
+    Node temp = root.left;
+    root.left = root.right;
+    root.right = temp;
+    mirrorBST(root.left);
+    mirrorBST(root.right);
+    return root;
+  }
+
+ 
+  
+
   public static void main(String[] args) {
-    int values[] = {8, 5, 3, 1, 4, 6, 10, 11, 14};
+    int values[] = {8, 5, 3, 6, 10, 11};
     Node root = null;
 
     for(int i = 0; i < values.length; i++) {
@@ -168,6 +186,9 @@ public class BST {
     // inorder(root);
 
     // System.out.println("\n" + search(root, 3));
-    paths(root);
+    // paths(root);
+
+    mirrorBST(root);
+    inorder(root);
   }
 }
