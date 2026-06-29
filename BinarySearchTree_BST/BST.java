@@ -172,23 +172,39 @@ public class BST {
     return root;
   }
 
- 
+  // Sorted array to Balanced BST
+  // TC: O(n)
+  public static Node createBST(int[] arr, int st, int ed) {
+    if (st > ed) {
+      return null;
+    }
+
+    int mid = (int) (st+ed)/2;
+
+    Node root = new Node(arr[mid]);
+
+    root.left = createBST(arr, st, mid-1);
+    root.right = createBST(arr, mid+1, ed);
+
+    return root;
+  }
   
 
   public static void main(String[] args) {
-    int values[] = {8, 5, 3, 6, 10, 11};
-    Node root = null;
+    int values[] = {3, 5, 6, 8, 10, 11, 12, 13};
+    // Node root = null;
 
-    for(int i = 0; i < values.length; i++) {
-      root = insert(root, values[i]);
-    }
+    // for(int i = 0; i < values.length; i++) {
+    //   root = insert(root, values[i]);
+    // }
 
     // inorder(root);
 
     // System.out.println("\n" + search(root, 3));
     // paths(root);
 
-    mirrorBST(root);
+    // mirrorBST(root);
+    Node root = createBST(values, 0, values.length-1);
     inorder(root);
   }
 }
