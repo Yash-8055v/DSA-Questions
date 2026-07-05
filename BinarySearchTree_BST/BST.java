@@ -260,7 +260,65 @@ public class BST {
       return new Info3(true, size, min, max);
     }
 
-    return new Info3(false, size, min, max)
+    return new Info3(false, size, min, max);
+
+  }
+
+  // Merge 2 BSTs
+  // TC: O(n+m) -> linear n,m heights of trees
+  public static void getInorder1(Node root, ArrayList<Integer> arr) {
+    if (root == null) {
+      return;
+    }
+
+    getInorder1(root.left, arr);
+    arr.add(root.data);
+    getInorder1(root.right, arr);
+    
+  }
+
+  public static Node createBST1(ArrayList<Integer> arr, int st, int end) {
+    if (st > end) {
+      return null;
+    }
+    int mid =  (st+end) / 2;
+    Node root = new Node(arr.get(mid));
+    root.left = createBST1(arr, st, mid-1);
+    root.right = createBST1(arr, end, mid+1);
+    return root;
+  }
+
+  public static Node mergeBSTs(Node root1, Node root2) {
+    
+    ArrayList<Integer> arr1 = new ArrayList<>();
+    getInorder1(root1, arr1);
+
+    ArrayList<Integer> arr2 = new ArrayList<>();
+    getInorder1(root2, arr2);
+
+    int i = 0, j = 0;
+    ArrayList<Integer> finalArr = new ArrayList<>();
+    while (i < arr1.size() && j < arr2.size()) {
+      if (arr1.get(i) <= arr2.get(j)) {
+        finalArr.add(arr1.get(i));
+        i++;
+      }else{
+        finalArr.add(arr2.get(j));
+        j++;
+      }
+    }
+
+    while (i < arr1.size()) {
+      finalArr.add(arr1.get(i));
+      i++;
+    }
+
+    while (j < arr2.size()) {
+      finalArr.add(arr2.get(j));
+      j++;
+    }
+
+    return createBST1(finalArr, 0, finalArr.size()-1);
 
   }
 
