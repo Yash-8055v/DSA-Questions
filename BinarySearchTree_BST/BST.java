@@ -222,6 +222,48 @@ public class BST {
     return root;
   }
 
+  // Size of Largest BST in BT
+  static class Info3 {
+  
+    boolean isBST;
+    int size, min, max;
+
+    public Info3(boolean isBST, int size, int min, int max) {
+      this.isBST = isBST;
+      this.size = size;
+      this.min = min;
+      this.max = max;
+    }
+  }
+  public static int maxBST = 0;
+  public static Info3 largestBST(Node root) {
+
+    if (root == null) {
+      return new Info3(true, 0, Integer.MAX_VALUE, Integer.MIN_VALUE);
+    }
+
+    Info3 leftInfo = largestBST(root.left);
+    Info3 rightInfo = largestBST(root.right);
+
+    int size = leftInfo.size + rightInfo.size;
+
+    int min = Math.min(root.data, Math.min(leftInfo.min, rightInfo.min));
+
+    int max = Math.max(root.data, Math.max(leftInfo.max, rightInfo.max));
+
+    if (root.data <= leftInfo.max || root.data >= rightInfo.min) {
+      return new Info3(false, size, min, max);
+    }
+
+    if (leftInfo.isBST && rightInfo.isBST) {
+      maxBST = Math.max(maxBST, size);
+      return new Info3(true, size, min, max);
+    }
+
+    return new Info3(false, size, min, max)
+
+  }
+
   public static void main(String[] args) {
     int values[] = {3, 5, 6, 8, 10, 11, 12, 13};
     // Node root = null;
