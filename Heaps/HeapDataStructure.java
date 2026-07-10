@@ -25,6 +25,12 @@ public class HeapDataStructure {
       }
     }
 
+    // Peek from Heap
+    // TC: O(1)
+    public int peek() {
+      return arr.get(0);
+    }
+
   }
   
   public static void main(String[] args) {
