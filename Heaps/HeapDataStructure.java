@@ -18,10 +18,13 @@ public class HeapDataStructure {
       int x = arr.size() - 2;
       int parIdx = x / 2;
 
-      while (arr.get(x) < arr.get(parIdx)) {
+      while (arr.get(x) < arr.get(parIdx)) { // use > for max heap
         int temp = arr.get(x);
         arr.set(x, arr.get(parIdx));
         arr.set(parIdx, temp);
+
+        x = parIdx;
+        parIdx = (x-1)/2;
       }
     }
 
@@ -40,12 +43,12 @@ public class HeapDataStructure {
       int minIdx = idx;  
 
       // check if left child is min
-      if (left < arr.size() && arr.get(minIdx) > arr.get(left)) {
+      if (left < arr.size() && arr.get(minIdx) > arr.get(left)) { // use < for max heap
         minIdx = left;
       }
 
       // check if right child is min
-      if (right < arr.size() && arr.get(minIdx) > arr.get(right)) {
+      if (right < arr.size() && arr.get(minIdx) > arr.get(right)) { // use < for max heap
         minIdx = right;
       }
 
@@ -66,7 +69,7 @@ public class HeapDataStructure {
       
       // 1. swap first and last 
       int temp = arr.get(0);
-      arr.set(0, arr.size() - 1);
+      arr.set(0, arr.get(arr.size() - 1));
       arr.set(arr.size() - 1, temp);
 
       // 2. delete last
@@ -77,9 +80,23 @@ public class HeapDataStructure {
       return data; // return deleted element
     }
 
+    public boolean isEmpty() {
+      return arr.size() == 0;
+    }
+
   }
   
   public static void main(String[] args) {
-    
+    Heap h = new Heap();
+    h.add(3);
+    h.add(4);
+    h.add(1);
+    h.add(5);
+
+    while (!h.isEmpty()) {
+      System.out.println(h.peek());
+      h.remove();
+    }
+
   }
 }
