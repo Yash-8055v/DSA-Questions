@@ -1,6 +1,7 @@
 
 
 import java.util.HashMap;
+import java.util.Set;
 
 public class Hashmap {
 
@@ -18,6 +19,19 @@ public class Hashmap {
         System.out.println(hm.containsKey("China"));
 
         System.out.println(hm.remove("US"));
+
+        System.out.println(hm.size());
+
+        System.out.println(hm.isEmpty());
+
+        hm.clear();
+
+        // Iterate 
+        Set<String> keys = hm.keySet();
+
+        for (String k : keys) {
+            System.out.println("Key = " + k + " ,value =  " + hm.get(k));
+        }
 
     }
 }
