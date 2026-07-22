@@ -108,7 +108,20 @@ public class HashMapCode {
 
     }
 
+    // TC: O(1)
+    public V remove(K key) {
+        int bi = hashFunction(key);
+        int di = searchInLL(key, bi);
 
+        if(di != -1) {
+            Node node = buckets[bi].remove(di);
+            return node.value;
+        }else {
+            return null;
+        }
+
+    }
+    
 
 
 }
