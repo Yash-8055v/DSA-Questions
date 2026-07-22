@@ -115,6 +115,7 @@ public class HashMapCode {
 
         if(di != -1) {
             Node node = buckets[bi].remove(di);
+            n--;
             return node.value;
         }else {
             return null;
@@ -122,7 +123,18 @@ public class HashMapCode {
 
     }
     
+    // TC: O(1)
+    public ArrayList<K> KeySet() {
+        ArrayList<K> keys = new ArrayList<>();
 
+        for(int i = 0; i < buckets.length; i++) {
+            LinkedList<Node> ll = buckets[i];
+            for(Node node : ll) {
+                keys.add(node.key);
+            }
+        }
+        return keys;
+    }
 
 }
 
