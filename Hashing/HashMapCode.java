@@ -124,7 +124,7 @@ public class HashMapCode {
     }
     
     // TC: O(1)
-    public ArrayList<K> KeySet() {
+    public ArrayList<K> keySet() {
         ArrayList<K> keys = new ArrayList<>();
 
         for(int i = 0; i < buckets.length; i++) {
@@ -136,6 +136,10 @@ public class HashMapCode {
         return keys;
     }
 
+    // TC: O(1)
+    public boolean isEmpty() {
+        return n == 0;
+    }
 }
 
     public static void main(String[] args) {
