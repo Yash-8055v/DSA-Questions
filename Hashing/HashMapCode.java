@@ -62,6 +62,7 @@ public class HashMapCode {
         }
     }
 
+    // TC: O(1)
     public void put(K key, V value) {
         int bi = hashFunction(key);
         int di = searchInLL(key, bi);
@@ -79,6 +80,21 @@ public class HashMapCode {
             rehash();
         }
     }
+
+    // TC: O(1)
+    public boolean containsKey(K key) {
+        int bi = hashFunction(key);
+        int di = searchInLL(key, bi);
+
+        if(di != -1) {
+            return true;
+        }else {
+            return false;
+        }
+
+    }
+
+    
 
 
 
