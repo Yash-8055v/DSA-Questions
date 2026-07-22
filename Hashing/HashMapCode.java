@@ -94,7 +94,19 @@ public class HashMapCode {
 
     }
 
-    
+    // TC: O(1)
+    public V get(K key) {
+        int bi = hashFunction(key);
+        int di = searchInLL(key, bi);
+
+        if(di != -1) {
+            Node node = buckets[bi].get(di);
+            return node.value;
+        }else {
+            return null;
+        }
+
+    }
 
 
 
