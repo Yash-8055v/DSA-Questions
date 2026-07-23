@@ -45,6 +45,7 @@ public class HashMapCode {
         return -1;
     }
 
+    @SuppressWarnings("unchecked")
     private void rehash() {
         LinkedList<Node> oldBucket[] = buckets;
         buckets = new LinkedList[N*2];
