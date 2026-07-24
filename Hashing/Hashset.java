@@ -46,7 +46,12 @@ public class Hashset {
             System.out.println(it.next());
         }
 
-      
+        // a) using Enhanced for loop
+        // TC: O(n)
+        for(String city : cities) {
+            System.out.println(city);
+        }
+
         
     }
 }
