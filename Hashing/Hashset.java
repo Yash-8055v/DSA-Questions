@@ -1,5 +1,6 @@
 
 import java.util.HashSet;
+import java.util.Iterator;
 
 
 
@@ -29,6 +30,23 @@ public class Hashset {
         System.out.println(set.isEmpty());
 
         set.clear();
+
+        // Iteration on HashSet
+
+        HashSet<String> cities = new HashSet<>();
+        cities.add("Delhi");
+        cities.add("Mumbai");
+        cities.add("Noida");
+        cities.add("Pune");
+
+        // a) using Iterators
+        // TC: O(n)
+        Iterator it = cities.iterator();
+        while(it.hasNext()) {
+            System.out.println(it.next());
+        }
+
+      
         
     }
 }
